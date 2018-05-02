@@ -1,0 +1,25 @@
+
+#content-cat {
+	display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.cell {
+	border: 5px solid red;
+}
+
+.container {
+	width: 100%;
+	display: inline-flex;
+	flex-wrap: nowrap;
+}
+
+nav {
+	width: 20%;
+}
+
+main {
+	width: 80%;
+}
