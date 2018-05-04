@@ -7,12 +7,33 @@
     </head>
     <body class="cell">
     	<div class="container cell">
-    		<nav class="nav cell"><ul class="nav__list"></ul></nav>
     		<main class="cell">
     			<h2 class="catName"></h2>
     			<div class="cat__content"><img class="catImage" alt="Cat image"></div>
     			<div>Number of Clicks: <span class="catClicks"></span></div>
     		</main>
+    		<nav class="nav cell"><ul class="nav__list"></ul></nav>
+    	</div>
+    	<div class="admin__mode">
+    		<button id="buttonAdmin">Admin</button>
+    		<form id="form" class="hidden">
+    			<div class="inputField">
+    				<label>Name</label>
+    				<input id="inputName" type="text" name="name">
+    			</div>
+    			<div class="inputField">
+    				<label>ImgURL</label>
+    				<input id="inputimgURL" type="text" name="imgURL">
+    			</div>
+    			<div class="inputField">
+    				<label>#clicks</label>
+    				<input id="inputNrOfClicks" type="text" name="clicks">
+    			</div>
+    			<div>
+    				<button id="buttonCancel">Cancel</button>
+    				<button id="buttonSave">Save</button>
+    			</div>
+    		</form>
     	</div>
     	<script src="js/app.js"></script>
     </body>

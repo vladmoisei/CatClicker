@@ -25,6 +25,28 @@ main {
 	font-size: 24px;
 }
 
-li:hover, img:hover {
+li:hover, img:hover , button:hover{
 	cursor: pointer;
+}
+
+.hidden {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.inputField {
+	width: 300px;
+	text-align: right;
+    padding: 10px;
+}
+
+#inputName, #inputimgURL, #inputNrOfClicks {
+	margin-left: 5px;
+}
+
+#buttonAdmin, #buttonCancel, #buttonSave {
+	margin: 5px;
 }

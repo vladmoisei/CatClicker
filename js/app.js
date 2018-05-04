@@ -95,6 +95,7 @@ var octopus = {
 		// tell our views to initialize
 		catListView.init();
         catView.init();
+        adminView.init();
 	},
 
 	getCurrentCat: function() {
@@ -114,7 +115,21 @@ var octopus = {
 	incrementCounter: function() {
 		model.curentCat.clickCounter++;
 		catView.render();
-	}
+	},
+
+	// update model with data from inpu form
+	updateModel: function() {
+		model.cats.forEach(cat => {
+			if (model.curentCat.name === cat.name) {
+				cat.name = document.querySelector('#inputName').value;
+				cat.imgSrc = document.querySelector('#inputimgURL').value;
+				cat.clickCounter = parseInt(document.querySelector('#inputNrOfClicks').value);
+			};
+		});
+		model.curentCat.name = document.querySelector('#inputName').value;
+		model.curentCat.imgSrc = document.querySelector('#inputimgURL').value;
+		model.curentCat.clickCounter = parseInt(document.querySelector('#inputNrOfClicks').value);
+	},
 };
 
 /* ======= View ======= */
@@ -185,6 +200,37 @@ var catListView = {
 		}
 	}
 };
+
+var adminView = {
+	init: function() {
+		// store pointers to our DOM elements for easy access later
+		var adminButton = document.querySelector('#buttonAdmin');
+		var saveButton = document.querySelector('#buttonSave');
+		var cancelButton = document.querySelector('#buttonCancel');
+		var adminForm = document.querySelector('#form');
+
+		// on click, render input form
+		adminButton.addEventListener('click', function() {
+			adminForm.className = "swow";
+		});
+
+		// on click, hide input form
+		cancelButton.addEventListener('click', function(event) {
+			adminForm.className = "hidden";
+			event.preventDefault();
+		});
+
+		// on click, update model
+		saveButton.addEventListener('click', function(event) {
+			octopus.updateModel();
+			catView.render();
+			catListView.render();
+			adminForm.className = "hidden";
+			event.preventDefault();
+		});
+
+	}
+}
 
 // make it go!
 octopus.init();
